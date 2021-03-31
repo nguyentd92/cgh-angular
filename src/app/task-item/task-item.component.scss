@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+
+  border: 1px solid silver;
+  border-radius: .5em;
+
+  margin-bottom: .5em;
+
+  transition: .3s ease-in-out;
+
+  &.is-done {
+    opacity: .4;
+  }
+}
+
+.no {
+  margin-right: 2rem;
+}
+
+.task-name {
+  flex-grow: 1;
+}
+
+.dead-line {
+  padding: 0 1em
+}

@@ -1,0 +1,21 @@
+<div class="no">
+  <input type="checkbox" [ngModel]="isDone" (ngModelChange)="onChangeCheckDone($event)">
+</div>
+
+<div class="task-name">
+  {{ job.name }}
+</div>
+
+<div class="dead-line">
+  <span *ngIf="!isDone">
+    {{ job.deadline | date: 'dd/MM/yyyy' }}
+  </span>
+
+  <span *ngIf="isDone">
+    {{ job.doneAt | date: 'dd/MM/yyyy hh:mm'}}
+  </span>
+</div>
+
+<div>
+  <button class="btn btn-danger btn-sm" (click)="onClickDelete()">Xóa</button>
+</div>
