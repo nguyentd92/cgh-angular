@@ -3,7 +3,8 @@
 </div>
 
 <div class="task-name">
-  {{ job.name }}
+  <a [routerLink]="['/task-item', job.id]"> {{ job.name }}</a>
+
 </div>
 
 <div class="dead-line">

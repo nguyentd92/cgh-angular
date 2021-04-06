@@ -1,0 +1,37 @@
+<form [formGroup]="form" class="form">
+  <div class="mb-3 form-inline align-items-start">
+    <label for="validationTextarea">Job Title</label>
+    <div>
+      <input
+        formControlName="name"
+        class="form-control"
+        [ngClass]="{'is-invalid': formControl('name').dirty && formControl('name').invalid}"
+        placeholder="Required example textarea"
+        required
+      />
+      <div class="invalid-feedback" *ngIf="formControl('name').invalid">
+        Please enter task's name at least 5 chars
+      </div>
+
+      <!-- <pre>{{ formControl('name').errors | json }}</pre> -->
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <label for="validationDate">Deadline: </label>
+    <input
+      formControlName="deadline"
+      class="form-control"
+      id="validationDate"
+      type="date"
+    />
+  </div>
+
+  <button class="btn btn-primary" type="button" (click)="add()">
+    Thêm công việc
+  </button>
+
+  <button class="btn btn-secondary ml-2" type="button" (click)="resetForm()">
+    Làm mới
+  </button>
+</form>

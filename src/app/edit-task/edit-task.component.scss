@@ -1,0 +1,16 @@
+form.form {
+  margin-bottom: .5em;
+
+  label {
+    width: 8em;
+    justify-content: flex-start
+  }
+
+  button:first-child {
+    margin-right: .5rem;
+  }
+
+  input {
+    width: 20em;
+  }
+}

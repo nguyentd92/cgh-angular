@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, HostBinding } from '@angular/core';
-import { Job } from '../_shared/models/job.model';
+import { Job } from 'src/app/_shared/models/job.model';
 
 @Component({
   selector: 'app-task-item',

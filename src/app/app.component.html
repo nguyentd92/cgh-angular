@@ -1,53 +1,33 @@
 <div class="container">
-  <div class="form">
-    <div class="form-group form-inline">
-      <label>Tên công việc: </label>
-      <input [(ngModel)]="inputName" class="form-control" #controlName />
-    </div>
-
-    <div class="form-group form-inline">
-      <label>Deadline: </label>
-      <input [(ngModel)]="inputDate" class="form-control" type="date" #controlDeadline />
-    </div>
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">CodeGym Huế</a>
     <button
-      class="btn btn-primary"
+      class="navbar-toggler"
       type="button"
-      (click)="add()"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      Thêm công việc
+      <span class="navbar-toggler-icon"></span>
     </button>
-  </div>
-<!--
-  <table class="table" style="width: 100%">
-    <thead>
-      <tr>
-        <th>STT</th>
-        <th>Tên công việc</th>
-        <th>Hạn cuối</th>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
 
-        <th></th>
-      </tr>
-    </thead>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+            routerLink="/list"
+            >Task list<span class="sr-only">(current)</span></a
+          >
+        </li>
 
-    <tbody>
-      <tr *ngFor="let job of jobs; let idx = index" [ngClass]="{ oddRow: idx % 2 != 0 }">
-        <td>{{ idx + 1 }}</td>
-        <td>
-          {{ job.name }}
-        </td>
-        <td>
-          {{ job.deadline | date: 'dd/MM/yyyy HH:mm:ss'}}
-        </td>
-        <td>
-          <button class="btn btn-sm btn-danger" (click)="delete(idx)">
-            Xóa
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/add">Add task</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <app-task-item *ngFor="let job of jobs" [job]="job" (onDelete)="delete($event)"></app-task-item>
+  <router-outlet></router-outlet>
 </div>
-

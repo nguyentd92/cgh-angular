@@ -1,20 +1,11 @@
-div.form {
-  margin-bottom: .5em;
-
-  label {
-    width: 8em;
-    justify-content: flex-start
-  }
-
-  input {
-    width: 20em;
-  }
-}
-
 .container {
-  padding: 1em;
+  padding: 0 1em;
 }
 
 .oddRow {
   background-color: silver;
+}
+
+nav {
+  margin-bottom: 1em;
 }

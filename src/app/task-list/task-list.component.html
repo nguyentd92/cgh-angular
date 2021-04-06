@@ -1,0 +1,5 @@
+<app-task-item
+*ngFor="let job of jobPage"
+[job]="job"
+(onDelete)="delete($event)"
+></app-task-item>
