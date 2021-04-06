@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { addDays, format } from 'date-fns';
 import { Job } from '../_shared/models/job.model';
+import { Message } from '../_shared/models/message.model';
 import { TasksService } from '../_shared/services/tasks.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { TasksService } from '../_shared/services/tasks.service';
 })
 export class FormAddTaskComponent implements OnInit {
   form!: FormGroup;
+  message: Message;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,6 +24,10 @@ export class FormAddTaskComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(5)]],
       deadline: [format(addDays(new Date(), 1), 'yyyy-MM-dd'), []]
     })
+
+    this.tasksService.message$.subscribe(
+      message => this.message = message
+    )
   }
 
 

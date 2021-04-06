@@ -31,3 +31,9 @@
 
   <router-outlet></router-outlet>
 </div>
+
+<div class="alert alert-success"
+[ngClass]="{'alert-success': message.type === 1, 'alert-danger': message.type === 0}"
+*ngIf="message" role="alert">
+  {{ message.content }}
+</div>

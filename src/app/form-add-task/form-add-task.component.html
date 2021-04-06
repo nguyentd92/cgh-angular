@@ -1,4 +1,11 @@
 <form [formGroup]="form" class="form">
+  <div class="alert"
+    [ngClass]="{'alert-success': message.type === 1, 'alert-danger': message.type === 0}"
+    *ngIf="message"
+  >
+    {{ message.content }}
+  </div>
+
   <div class="mb-3 form-inline align-items-start">
     <label for="validationTextarea">Job Title</label>
     <div>

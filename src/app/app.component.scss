@@ -9,3 +9,11 @@
 nav {
   margin-bottom: 1em;
 }
+
+.alert {
+  max-width: 500px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
