@@ -26,7 +26,10 @@ export class FormAddTaskComponent implements OnInit {
     })
 
     this.tasksService.message$.subscribe(
-      message => this.message = message
+      message => {
+        console.log('message in form add change')
+        this.message = message
+      }
     )
   }
 

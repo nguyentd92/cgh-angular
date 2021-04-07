@@ -4,37 +4,50 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TaskItemComponent } from './task-list/task-item/task-item.component';
 import { FormAddTaskComponent } from './form-add-task/form-add-task.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { AppLayoutComponent } from './_shared/components/app-layout/app-layout.component';
+import { AuthService } from './_shared/services/auth.service';
 
 const routes: Routes = [
   {
-    path: 'add',
-    component: FormAddTaskComponent
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'task-item/:id',
-    component: EditTaskComponent
+    path: '',
+    component: AppLayoutComponent,
+    children: [
+      {
+        path: 'add',
+        component: FormAddTaskComponent
+      },
+      {
+        path: 'task-item/:id',
+        component: EditTaskComponent
+      },
+      {
+        path: 'list',
+        loadChildren: () => import('./task-list/task-list.module')
+          .then(m => m.TaskListModule)
+      },
+    ],
+    canActivate: [AuthService]
   },
   {
-    path: 'list',
-    loadChildren: () => import('./task-list/task-list.module')
-      .then(m => m.TaskListModule)
-  },
-  // {
-  //   path: '**',
-  //   redirectTo: 'list',
-  //   pathMatch: 'full'
-  // }
+    path: '**',
+    redirectTo: 'list',
+    pathMatch: 'full'
+  }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     FormAddTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    AppLayoutComponent
   ],
   imports: [
     BrowserModule,
